@@ -22,6 +22,8 @@ def create_app(test_config=None):
         pass
 
     # register app
+    from api.user import user_blueprint
+    app.register_blueprint(user_blueprint)
 
     @app.route("/")
     def hi():

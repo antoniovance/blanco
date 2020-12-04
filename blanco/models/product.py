@@ -13,21 +13,25 @@ import enum
 
 class ProductStatusEnum(enum.Enum):
     offline = 1
-    online = 0
+    online = 2
 
 class Product(Base):
+    """抽象出来的物品"""
+
+    __tablename__ = 'product'
     id = Column(Integer, primary_key=True)
     name = Column(String(120))
     intro = Column(Text)
     status = Column(Enum(ProductStatusEnum))
-    stock = Column(Float)
-    unit = Column(Integer, ForeignKey('unit.id'))
+    stock = Column(Float, doc="数量的总量")
+    unit_id = Column(Integer, ForeignKey('unit.id'))
     
-    def __init__(self, name, intro, status, stock):
+    def __init__(self, name, intro, status, stock, unit_id):
         self.name = name
         self.intro = intro
         self.status = status
         self.stock = stock
+        self.unit_id = unit_id
     
     def __repr__(self):
         return "<product {}>".format(self.name)
