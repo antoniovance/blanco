@@ -22,5 +22,3 @@ class Inventory(Base):
     
     def __repr__(self):
         return "<inventory {}>".format(self.id)
-        
-    
