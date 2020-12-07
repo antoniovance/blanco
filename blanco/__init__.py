@@ -1,6 +1,8 @@
 import os
 
 from flask import Flask
+from flask_restful import Api
+from api import UserInfo
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -22,8 +24,11 @@ def create_app(test_config=None):
         pass
 
     # register app
-    from api.user import user_blueprint
-    app.register_blueprint(user_blueprint)
+    # from api.user import user_blueprint
+    # app.register_blueprint(user_blueprint)
+
+    api = Api(app=app)
+    api.add_resource(UserInfo, "/user/<int:pk>")
 
     @app.route("/")
     def hi():
