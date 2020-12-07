@@ -6,6 +6,9 @@ from blanco.database import Base
 
 
 class Unit(Base):
+    """单位"""
+
+    __tablename__ = 'unit'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), unique=True)
 

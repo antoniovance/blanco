@@ -8,6 +8,8 @@ from blanco.database import Base
 
 class Location(Base):
     """实际摆放位置"""
+
+    __table__ = 'location'
     id = Column(Integer, primary_key=True)
     name = Column(String(120))
     user_id = Column(Integer, ForeignKey('user.id'))

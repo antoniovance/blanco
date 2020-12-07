@@ -4,6 +4,7 @@ from sqlalchemy import String
 from blanco.database import Base
 
 class User(Base):
+    """用户"""
     __tablename__ = 'user'
 
     id = Column(Integer,primary_key=True)

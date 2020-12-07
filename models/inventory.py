@@ -8,6 +8,9 @@ from blanco.database import Base
 
 
 class Inventory(Base):
+    """库位：记录商品和位置之间的关系"""
+
+    __tablename__ = 'inventory'
     id = Column(Integer, primary_key=True)
     location_id = Column(Integer, ForeignKey('location.id'))
     product_id = Column(Integer, ForeignKey('product_id'))
