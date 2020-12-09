@@ -11,9 +11,11 @@ from blanco.database import Base
 
 import enum
 
+
 class ProductStatusEnum(enum.Enum):
     offline = 1
     online = 2
+
 
 class Product(Base):
     """抽象出来的物品"""

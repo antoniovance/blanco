@@ -2,6 +2,7 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import Column
 from sqlalchemy import DateTime
+from sqlalchemy import Text
 from sqlalchemy import ForeignKey
 
 from blanco.database import Base
@@ -13,7 +14,9 @@ class Location(Base):
     __tablename__ = 'location'
     id = Column(Integer, primary_key=True)
     name = Column(String(120))
+    description = Column(Text)
     user_id = Column(Integer, ForeignKey('user.id'))
+    avatar = Column(String(120), doc="位置图片")
     create_at = Column(DateTime)
     update_at = Column(DateTime)
 
