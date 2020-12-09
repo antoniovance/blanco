@@ -9,8 +9,8 @@ from blanco.database import Base
 
 class Sku(Base):
     """sku实际物品"""
-
     __tablename__ = 'sku'
+
     id = Column(Integer, primary_key=True)
     name = Column(String(120))
     product_id = Column(Integer, ForeignKey("product.id"))

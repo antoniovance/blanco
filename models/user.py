@@ -3,6 +3,7 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from blanco.database import Base
 
+
 class User(Base):
     """用户"""
     __tablename__ = 'user'
@@ -11,9 +12,9 @@ class User(Base):
     name = Column(String(120), unique=True)
     password = Column(String(64))
     email = Column(String(60), unique=True)
-    
+
     def __repr__(self):
-        return "<User {}>".format
+        return "<User {}>".format(self.name)
 
     def __init__(self, name, email, password):
         self.name = name
