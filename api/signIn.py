@@ -7,6 +7,9 @@ parser = reqparse.RequestParser()
 
 
 class SignInView(Resource):
+    """
+    登录接口
+    """
     _schema = SignInSchema()
 
     def post(self):

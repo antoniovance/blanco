@@ -5,6 +5,9 @@ from marshmallow import ValidationError
 
 
 class SignUpView(Resource):
+    """
+    注册接口
+    """
     _schema = SignUpSchema()
 
     def post(self):
