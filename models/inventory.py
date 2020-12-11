@@ -14,6 +14,7 @@ class Inventory(Base):
     id = Column(Integer, primary_key=True)
     location_id = Column(Integer, ForeignKey('location.id'))
     product_id = Column(Integer, ForeignKey('product.id'))
+    sku_id = Column(Integer, ForeignKey('sku.id'))
     stock = Column(Float)
     unit_id = Column(Integer, ForeignKey('unit.id'))
 

@@ -2,14 +2,15 @@ import os
 
 from flask import Flask
 from flask_restful import Api
-from api import UserInfo
+from models.user import User
+
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'blanco.sqlite'),
+        DATABASE=os.path.join(app.instance_path, 'blanco.sqlite3'),
     )
 
     if test_config is None:
@@ -28,11 +29,12 @@ def create_app(test_config=None):
     # app.register_blueprint(user_blueprint)
 
     api = Api(app=app)
-    api.add_resource(UserInfo, "/user/<int:pk>")
+    from blanco.urls import register_view
+    register_view(api)
 
-    @app.route("/")
-    def hi():
-        return "hi"
+    # @app.route("/")
+    # def hi():
+    #     return "hi"
 
     return app
 

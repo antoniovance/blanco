@@ -10,7 +10,7 @@ from blanco.database import Base
 import enum
 
 
-class SkuGainType(enum):
+class SkuGainType(enum.Enum):
     PERCHASE = 1
     GIFT = 2
     EXCHANEG = 3
@@ -40,7 +40,6 @@ class Sku(Base):
         self.size = size
         self.stock = stock
         self.unit_id = unit_id
-    
 
     def __repr__(self):
         return "<sku {}>".format(self.name)

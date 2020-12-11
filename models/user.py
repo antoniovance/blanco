@@ -82,7 +82,7 @@ class User(Base):
     email = Column(String(60), unique=True)
     avatar = Column(String(240), nullable=True, doc="用户头像")
     birthday = Column(Date, nullable=True)
-    sex = Column(UserSexEnum, nullable=True)
+    sex = Column(Enum(UserSexEnum), nullable=True)
 
     def __repr__(self):
         return "<User {}>".format(self.name)
