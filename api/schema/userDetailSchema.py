@@ -20,7 +20,6 @@ class UserDetailSchema(Schema):
 
     @post_load
     def update_user_detail(self, data, **kwargs):
-        print(data, kwargs)
         user = db_session.query(User).filter(User.id == data['id']).first()
         if not user:
             return

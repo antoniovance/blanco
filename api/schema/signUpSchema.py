@@ -15,8 +15,6 @@ class SignUpSchema(Schema):
 
     @post_load
     def sign_up_user(self, data, **kwargs):
-        print(db_session.query(User).filter(
-                User.name == data['name']).count())
         if db_session.query(User).filter(
                 User.name == data['name']).count():
             return {}
